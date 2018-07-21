@@ -30,10 +30,13 @@ int main()
 		//appropriate output messages
 		if(userGuess>targetNo)
 		{
-			std::cout<<"Guess Lower"<<std::endl;
+			if(i<roundLimit-1)//if not last round- no need to tell the player this
+				std::cout<<"Guess Lower"<<std::endl;
+
 		}else if(userGuess<targetNo)
 		{
-			std::cout<<"Guess Higher"<<std::endl;
+			if(i<roundLimit-1)
+				std::cout<<"Guess Higher"<<std::endl;
 		}else
 		{	//win-exit application
 			std::cout<<"You Win"<<std::endl;

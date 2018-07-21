@@ -21,7 +21,9 @@ int main()
 			<< endl	<< endl;
 
 	// answer++;
-	/*no overloading of the ++ operator has ben implemented for the complex class
+	/*
+	Ex 3.1
+	no overloading of the ++ operator has ben implemented for the complex class
 	the decision not to implement the operator overloading is likely because its usage would be ambiguous
 	should it increment the real part, imaginary part, or both?
 	*/
