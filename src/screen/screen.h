@@ -19,6 +19,10 @@ public:
 
 	// get the Screen's height
 	string::size_type height() const { return height_; }
+	/*ex 4.2 the const here guarantees that the function will not 	
+	change any member variables or call any non const member functions
+	*/
+
 	// get the Screen's width
 	string::size_type width() const { return width_; }
 
@@ -46,11 +50,29 @@ public:
 	void set( char ch );
 	// write a string of characters on the screen starting at the current cursor position
 	void set( const string& s );
+
+	/* ex 4.2 the const here guarantees that the function will not 	
+	change the parameter passed to it-passed by const reference
+	this is done as to avoid the overhead of passing by value
+	whilst retaining the same safety- not allowing the original value to be changed
+
+	*/
+
+
 	// overwrite the entire screen with the specified character
 	void clear( char bkground = '#');
 
 	// resize the screen
 	void reSize( string::size_type height, string::size_type width, char bkground = '#');
+	/*
+	ex 4.2
+		the string:: here indicates size_type being a part of the string namespace 
+		which in itself is part of the std namespace
+		the need for an explicit size type as opposed 
+		to an unsigned int etc. is to ensure cross platform compatability
+		--depending on the OS and architecture the size type of string will vary
+	*/
+
 	// display the screen
 	void display() const;
 	// check whether the specified co-ordinates lie within the screen
@@ -60,7 +82,11 @@ private:
 	// constants
 	// 0 represents the top-left screen element
 	const string::size_type TOP_LEFT = 0;
+	/* ex 4.2
+	 the const here is used to declare
+	 a member that will not/can not change in value
 
+	*/
 	// private member functions
 	string::size_type remainingSpace() const;
 	string::size_type row() const;
