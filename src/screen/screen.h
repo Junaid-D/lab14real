@@ -100,6 +100,70 @@ public:
 		--depending on the OS and architecture the size type of string will vary
 	*/
 
+
+	/*
+	ex 4.5
+		the draw square functionality can be implemented fairly
+		easily using the existing interface
+
+
+		This function would probably be more suitable in an additional library of shape drawing functions 
+		that builds on top of the functionality of Screen.
+
+		The primary functionality of the Screen class is to allow for easy navigation and setting of characters on the screen.
+		Therefore, this function would just be unnecessary from the point of view of someone using the screen class for its core functionality-bloat.
+
+		However, if the functionality of the screen class is to have some basic ability to draw shapes, then including only the functionality of square drawing
+		seems like an incomplete implementation and as such the function should be omitted as to present a more consistent definition of the functionality of the screen class
+
+		An additional graphics library built 'on top of' screen would be better suited.
+
+	*/
+	void drawSquare(string::size_type row, string::size_type col,string::size_type length)
+	{
+		if ( !(checkRange(row+length-1,col+length-1)&& checkRange(row,col)) )
+		{
+			cerr<<"Screen not big enough for this square at the given position/ Invalid start point!"<<endl;
+
+		}else
+		{
+			move(row,col);
+			//draw horizontal
+			for (int j=0;j<2;j++)
+			{
+				for (int i=0;i<length-1;i++)
+				{
+					set('X');
+					forward();
+				}
+				set('X');
+				move(row+length-1,col);
+			}
+			move(row,col);
+			for (int j=0;j<2;j++)
+			{
+				for (int i=0;i<length-1;i++)
+				{
+					set('X');
+					down();
+				}
+				set('X');
+				move(row,col+length-1);
+			}
+
+
+		}
+
+	}
+
+	/*
+	ex 4.6
+
+
+	
+	*/
+
+
 	// display the screen
 	void display() const;
 	// check whether the specified co-ordinates lie within the screen
