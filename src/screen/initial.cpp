@@ -13,9 +13,9 @@ int main()
 		screen1.forward();
 	}
 
-	screen1.move(1,3);
+	screen1.move(2,3);
 
-	for (int i=0;i<6;i++)
+	for (int i=0;i<4;i++)
 	{
 		screen1.set('*');
 		screen1.forward();
@@ -23,8 +23,8 @@ int main()
 		screen1.back();
 		screen1.down();
 	}
-
-	for (int i=0;i<3;i++)
+	screen1.forward();
+	for (int i=0;i<4;i++)
 	{
 		screen1.set('*');
 		screen1.back();
