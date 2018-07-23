@@ -158,9 +158,20 @@ public:
 
 	/*
 	ex 4.6
-
-
 	
+	1)a 2d char array would likely make indexing easier instead of having to use
+	(cursor%width)
+
+	2) changing the interface is problematic as this would affect any other code 
+	that relies on the current interface-> changes would be needed in code outside
+	 of the class as well.
+
+	3) Changing the implementation, provided that behaviour remains the same is fine
+	as code that depends on this class relies more on a consistent input-output relationship 
+	than the underlying code itself; which may change due to optimization etc.
+
+
+
 	*/
 
 
